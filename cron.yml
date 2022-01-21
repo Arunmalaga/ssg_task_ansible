@@ -1,0 +1,14 @@
+---
+- name: cron
+  hosts: all
+  tasks:
+    - name: "cronjob"
+      ansible.builtin.cron:
+        name: "script"
+        state: present
+        minute: "5"
+        hour: "*"
+        day: "*"
+        month: "*"
+        weekday: "*"
+        job: "bash /home/arun/print_me.sh >> /home/arun/hello_error.log"

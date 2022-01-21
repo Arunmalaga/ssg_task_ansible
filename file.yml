@@ -1,0 +1,13 @@
+---
+- name: file
+  hosts: all
+  vars: 
+    myfile: "~/print_me.sh"
+  task: 
+    - name: create file
+      ansible.builtin.file:
+        path: /home/arun/
+        content: |
+          echo "Hello Arun" $(date +"%Y-%m-%d %T")
+        state: touch
+        mode: '0777'
